@@ -1,0 +1,1 @@
+# dotnotcore-withAAD-onK8s
