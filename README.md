@@ -12,7 +12,7 @@
 ```sh
 dotnet new mvc -au SingleOrg --client-id "xxxxxxxxxxxxxxxxxxx" --tenant-id "xxxxxxxxxxxxxxxxxxxxxxxx" --domain "xxxxxxxx"
 ```
-Add below code in startup.cs ---> Configure
+Add below code in startup.cs ---> Configure [program.cs](https://github.com/rupeshtech/dotnetcore-withAAD-onK8s/blob/master/SampleMvcAppWithAad/Program.cs)
 
 ```csharp
     app.Use((context, next) =>
@@ -30,6 +30,7 @@ touch Dockerfile (see DockerFile from SampleApp)
 docker build -t myapp:v1 .
 docker image ls
 ```
+[DockerFile from SampleApp](https://github.com/rupeshtech/dotnetcore-withAAD-onK8s/blob/master/SampleMvcAppWithAad/Dockerfile)
 ### Push image to ACR
 ```sh
 az login
