@@ -69,7 +69,7 @@ PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ip
 az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 ```
 
-# create secret topull image for Azure container registry
+### create secret to pull image for Azure container registry
 ```sh
 kubectl create secret docker-registry <secret-name> --docker-server=<youracr.azurecr.io> --docker-username=<acrusername> --docker-password=<acr-password> --docker-email=<youremailaddress>
 ```
