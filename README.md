@@ -8,7 +8,7 @@
 2. You have an Azure Subscription. [Free $200 Azure Credit](https://azure.microsoft.com/free)
 3. You have an image repository (this example uses Azure container registry)
 
-## Create Sample MVC App with AAD authentication
+## Create Sample MVC App with `AAD authentication`
 ```sh
 dotnet new mvc -au SingleOrg --client-id "xxxxxxxxxxxxxxxxxxx" --tenant-id "xxxxxxxxxxxxxxxxxxxxxxxx" --domain "xxxxxxxx"
 ```
@@ -24,7 +24,7 @@ Add below code in startup.cs ---> Configure [program.cs](https://github.com/rupe
 ```sh
 dotnet run
 ```
-### Build image
+### Build `image`
 ```sh
 touch Dockerfile (see DockerFile from SampleApp)
 docker build -t myapp:v1 .
@@ -39,7 +39,7 @@ docker tag myapp:v1 acrname.azurecr.io/myapp:v1
 docker push acrname.azurecr.io/myapp:v1
 ```
 
-## Create and Configure AKS
+## Create and Configure `AKS`
 Skip this step, If you already have AKS created and configured
 1. Create Azure kubernetes Cluster
 ```sh
@@ -72,7 +72,7 @@ https://<fqdn>/signin-oidc
 kubectl create secret docker-registry <secret-name> --docker-server=<youracr.azurecr.io> --docker-username=<acrusername> --docker-password=<acr-password> --docker-email=<youremailaddress>
 ```
 
-### Kubernetes Ingress
+### Kubernetes `ingress`
 ```sh
 kubectl create -f ingress.yaml
 ```
@@ -81,7 +81,7 @@ A few things to note:
 2. backend serviceName should match the name defined in file app-service.yaml
 3. Host should be your FQDN (fqdn from create static ip)
 
-### Kubernetes Deployment
+### Kubernetes `deployment`
 ```sh
 kubectl create -f app-deployment.yaml
 ```
@@ -89,7 +89,7 @@ A few things to note:
 1. image pull secret should be present if container registry is private
 2. image should be of format <youracr.azurecr.io>/myapp:v1  (if you are using Azure container registry)
 
-### Kubernetes Service
+### Kubernetes `service`
 ```sh
 kubectl create -f kubectl create -f app-service.yaml
 ```
